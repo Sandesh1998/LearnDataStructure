@@ -35,6 +35,22 @@ class binarysearchtree{
       }
     }
   }
+  lookup = function(value){
+    if( ! this.root){
+      return false;
+    }
+    let currentnode = this.root;
+    while(currentnode){
+      if(value < currentnode.value){
+        currentnode =currentnode.left;
+      }
+      else if(value > currentnode.value){
+        currentnode = currentnode .right;
+      } else if (currentnode .value == value){
+        return currentnode;
+    }
+    return false;
+  }
 }
 
 //this method gives the inorder traversal of the BST.
@@ -45,7 +61,7 @@ traverse = function(tree){
      traverse(tree.right);
   }
 }
-
+  
 //this method gives the inorder traversal of the BST.
 traversepreorder = function(tree){
   if(tree){
@@ -62,15 +78,3 @@ traversepostorder = function(tree){
      traverse(tree.right);
   }
 }
-
-const tree = new binarysearchtree();
-tree.insert(34);
-tree.insert(8);
-tree.insert(89);
-tree.insert(9);
-traverse(tree.root)
-console.log("preorder");
-traversepreorder(tree.root);
-console.log("postorder");
-traversepostorder(tree.root);
-

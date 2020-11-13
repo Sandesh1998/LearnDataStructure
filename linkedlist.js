@@ -17,6 +17,16 @@ class linkedlist{
      this.length ++;
      return this;
     }
+    prepend(value){
+        const newnode={
+            value : value,
+            next : null
+        };
+        newnode.next = this.head;
+        this.head = newmode;
+        this.length++;
+        return this;
+    }
 }
 const mylinkedlist = new linkedlist(10);
 mylinkedlist.append(5);
